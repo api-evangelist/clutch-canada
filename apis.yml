@@ -1,17 +1,32 @@
 aid: clutch-canada
 name: Clutch Canada
-description: 'Clutch Canada is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'Clutch is a Toronto-headquartered, vertically integrated online used-car
+  retailer serving Canadian drivers. Unlike marketplace models that broker to third-party
+  dealers, Clutch owns its own inventory and runs an end-to-end e-commerce purchase
+  flow at clutch.ca: browsing reconditioned pre-owned vehicles, auto financing and
+  a loan calculator, trade-in and sell-my-car offers, protection plans, insurance,
+  and home delivery, backed by a 10-day money-back guarantee. It operates across Ontario,
+  Nova Scotia, New Brunswick and Prince Edward Island. Clutch is a consumer retail
+  business rather than an API vendor: its software is shipped as an end-user web
+  application, and it publishes no public developer program, API reference, or
+  machine-readable specification.'
 url: https://raw.githubusercontent.com/api-evangelist/clutch-canada/refs/heads/main/apis.yml
+image: https://www.clutch.ca/icons/android-chrome-512x512.png
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+x-source-url: https://www.hiive.com/securities/clutch-canada-stock
 specificationVersion: '0.20'
 created: '2026-08-09'
 modified: '2026-08-09'
 tags:
 - Company
+- Automotive
+- E-Commerce
+- Used Cars
+- Auto Financing
+- Retail
+- Canada
+- Consumer
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +34,50 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/clutch-canada-domain-security.yml
 - type: Website
-  url: https://www.hiive.com/securities/clutch-canada-stock
+  url: https://www.clutch.ca
+- type: Blog
+  url: https://www.clutch.ca/blog
+- type: GitHubOrganization
+  url: https://github.com/clutchcanada
+- type: Support
+  url: https://www.clutch.ca/contact
+- type: FAQ
+  url: https://www.clutch.ca/faq
+- type: TermsOfService
+  url: https://www.clutch.ca/terms-of-service
+- type: PrivacyPolicy
+  url: https://www.clutch.ca/privacy-policy
+- type: About
+  url: https://www.clutch.ca/about
+- type: Careers
+  url: https://job-boards.greenhouse.io/clutch
+x-enrichment:
+  date: '2026-08-09'
+  status: minimal
+  artifacts_added: 1
+  pass: local-v1
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: Clutch sells cars, not software — its only API host, api.clutch.ca, answers
+    403 Forbidden to every path including a nonsense control path, and www.clutch.ca
+    has no developer portal at all (/developers and /api return the same 11,345-byte
+    React shell as a random control URL), so there is no public developer program to
+    document.
+  evidence:
+  - url: https://api.clutch.ca/v1
+    status: 403
+  - url: https://api.clutch.ca/zzz-control-9987
+    status: 403
+  - url: https://www.clutch.ca/developers
+    status: 200
+  - url: https://www.clutch.ca/llms.txt
+    status: 404
+  - url: https://www.clutch.ca/.well-known/agent-card.json
+    status: 404
+  - url: https://strapi.clutch.ca/documentation/v1.0.0/full_documentation.json
+    status: 404
+  checked: '2026-08-09'
